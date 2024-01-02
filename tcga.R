@@ -93,7 +93,7 @@ hmTcgaNeiStt <- function(input) {
     rownames(pltmat) = rownames(pltmat) %>% stringr::str_wrap(width=60)
 
     Heatmap(pltmat,
-        col = structure(c(MAGENTA, 'gray85', CYAN), names=c(1, 0, -1)),
+        col = structure(c(MAGENTA, 'gray95', CYAN), names=c(1, 0, -1)),
         rect_gp            = gpar(col='white'),
         border             = 'black',
         column_split       = cldt$icl_lab,
@@ -117,25 +117,25 @@ hmTcgaNeiStt <- function(input) {
       # column_names_gp    = gpar(fontsize=FONT_SIZE-3),
       # column_names_side  = 'top',
         column_names_rot   = 30,
-        height = unit(0.8*nrow(pltmat), 'cm'),
-      # width  = unit(0.2*ncol(pltmat), 'cm'),
-        width  = unit(20, 'cm'),
+      # height = unit(0.8*nrow(pltmat), 'cm'),
+      # width  = unit(20, 'cm'),
         heatmap_legend_param = list(
-            title       = "omic or\npathway\nstate",
-            title_gp    = gpar(fontsize=FONT_SIZE),
-            labels_gp   = gpar(fontsize=FONT_SIZE),
+            title       = "omic or pathway state",
+            title_gp    = gpar(fontsize=FONT_SIZE-2),
+            labels_gp   = gpar(fontsize=FONT_SIZE-2),
             grid_height = grid::unit(3.5, 'mm'),
             grid_width  = grid::unit(3.5, 'mm'),
             at          = 1:-1,
             labels      = c('activated', 'normal', 'repressed'),
             border      = 'black',
-            title_position = 'lefttop',
+            title_position = 'leftcenter',
+            nrow = 1,
             direction   = 'horizontal'
         )
     ) %>% draw( heatmap_legend_side = 'bottom',
                 background   = 'transparent',
               # row_names_gp = gpar(fontsize=FONT_SIZE-2),
-                padding      = unit(c(0, 7, 0, 0), 'cm') )
+                padding      = unit(c(0, 6, 0, 0), 'cm') )
 }
 
 
@@ -281,7 +281,8 @@ hmIplWithSampCl <- function(pltmat, cldt, col_title) {
         show_row_names    = TRUE,
         show_column_names = FALSE,
         column_names_side = 'top',
-        row_names_gp      = gpar(fontsize=10-floor(length(nrow(pltmat))/50)),
+      # row_names_gp      = gpar(fontsize=10-floor(length(nrow(pltmat))/50)),
+        row_names_gp      = gpar(fontsize=FONT_SIZE-2),
         column_title_gp   = gpar(fontsize=FONT_SIZE),
         row_title_rot     = 0,
         row_title_gp      = gpar(fontsize=FONT_SIZE),

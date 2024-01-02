@@ -3,10 +3,10 @@ require(shinydashboard)
 require(shinymanager)
 
 source('body.R')
+source('serv.R')
 source('tcga.R')
-#source('dpm.R')
 
-USE_PASSWORD = FALSE
+USE_PASSWORD = TRUE
 
 cred = data.table( user     = c('MPAC'),
                    password = c('HNSC'),
@@ -15,7 +15,7 @@ cred = data.table( user     = c('MPAC'),
 header = dashboardHeader(disable=TRUE)
 
 sidebar = sidebarMenu(
-    menuItem('TCGA-HNSCC', startExpanded = TRUE,
+    menuItem('TCGA-HNSCC results', startExpanded = TRUE,
              radioButtons( inputId  = 'tcga_hpv',
                            label    = 'Select an HPV type:',
                            choices  = c('HPV+', 'HPV-'),
@@ -69,7 +69,17 @@ server <- function(input, output, session) {
         output$res_auth = renderPrint({reactiveValuesToList(res_auth)})
     }
 
-    serveTcga(input, output, session)
+    ## Panel A ##
+    servTcgaOvr(input, output, session)
+
+    ## Panel B ##
+    servTcgaIpl(input, output, session)
+
+    ## Panel C ##
+    servTcgaProtTabs(input, output, session)
+
+    ## Panel D ##
+    servTcgaProtNei(input, output, session)
 }
 
 shinyApp(ui=ui, server=server)

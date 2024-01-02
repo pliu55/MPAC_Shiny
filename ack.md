@@ -11,6 +11,4 @@ This research was partially performed using the compute resources and assistance
 
 TCGA genomic and clinical data are downloaded from [NCI GDC Data Portal](https://portal.gdc.cancer.gov/)
 
-DepMap genomic data is downloaded from [DepMap portal](https://depmap.org/portal/download/all/)
-
 This website is built by [Shiny](https://www.rstudio.com/products/shiny/) from [posit](https://posit.co/)
