@@ -1,9 +1,12 @@
 Features to be implemented:
 - ~~add pathway neighbors heatmaps to TCGA data~~
-- add shortcuts to regenerate manuscript figures
-- add more usage description -- app function is not very intuitive
+- ~~add shortcuts to regenerate manuscript figures~~
+- ~~add more usage description -- app function is not very intuitive~~
   - ~~e.g. spell out 'IPL'~~
 - ~~convert sub-menu 'pathway' and 'protein' into radio buttons~~
   - radio button indicate input value, sub-menu indicate a webpage
 - ~~auto-size heatmaps upon the number of input pathways/proteins~~
-- is it possible to utilize ShinyLive to make this app independent of a Shiny server?
+- ~~is it possible to utilize ShinyLive to make this app independent of a Shiny server?~~
+  - deployed at https://biostat.wisc.edu/~pliu/shinylive/site/
+  - but got error: 'Robj construction for this JS object is not yet supported'
+  - known issue: https://github.com/posit-dev/shinylive/issues/98
