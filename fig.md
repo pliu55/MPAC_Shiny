@@ -1,4 +1,3 @@
-
 To regenerate figures in the manuscript
 
 - Figure 2
@@ -16,3 +15,42 @@ To regenerate figures in the manuscript
   - in panel __C__:
     - enter corresponding protein names
     - click the __Protein inferred pathway levels (IPLs)__ tab
+- Figure 3D
+  - in the side bar:
+    - select __HPV+__
+    - select __exploratory__ dataset
+    - click the __protein__ menu
+  - in panel __C__:
+    - enter corresponding protein names
+    - click the __Clinical relevance__ tab
+- Figure 3E
+  - in the side bar:
+    - select __HPV+__
+    - select __exploratory__ dataset
+    - click the __protein__ menu
+  - in panel __C__:
+    - enter corresponding protein names
+    - click the __Immune cell infiltration__ tab
+- Figure 4A
+  - in the side bar:
+    - select __HPV+__
+    - select __validation__ dataset
+    - click the __pathway__ menu
+  - in panel __A__:
+    - enter any GO term names
+- Figure 4B
+  - in the side bar:
+    - select __HPV+__
+    - select __validation__ dataset
+    - click the __protein__ menu
+  - in panel __C__:
+    - enter corresponding protein names
+    - click the __Clinical relevance__ tab
+- Figure 4C
+  - in the side bar:
+    - select __HPV+__
+    - select __validation__ dataset
+    - click the __protein__ menu
+  - in panel __C__:
+    - enter corresponding protein names
+    - click the __Immune cell infiltration__ tab
