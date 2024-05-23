@@ -6,7 +6,7 @@ source('body.R')
 source('serv.R')
 source('tcga.R')
 
-USE_PASSWORD = TRUE
+USE_PASSWORD = FALSE
 
 cred = data.table( user     = c('MPAC'),
                    password = c('HNSC'),
