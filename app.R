@@ -21,13 +21,13 @@ sidebar = sidebarMenu(
                            choices  = c('HPV+', 'HPV-'),
                            inline   = TRUE,
                            selected = 'HPV+' ),
-             
+
              radioButtons( inputId  = 'tcga_set',
                            label    = 'Select a dataset:',
                            choices  = c('exploratory', 'validation'),
                            inline   = FALSE,
                            selected = 'exploratory' ),
-             
+
              menuSubItem('Pathway',  tabName='tcga_pathway'),
              menuSubItem('Protein',  tabName='tcga_protein')),
 
@@ -40,10 +40,10 @@ sidebar = sidebarMenu(
 
 body = tabItems(
     tabItem(tabName = 'tcga_pathway',
-            h4('Pathway features in TCGA patient samples', align='center'), 
+            h4('Pathway features in TCGA patient samples', align='center'),
             body_tcga_pathway),
     tabItem(tabName = 'tcga_protein',
-            h4('Protein features in TCGA patient samples', align='center'), 
+            h4('Protein features in TCGA patient samples', align='center'),
             body_tcga_protein),
 
     tabItem(tabName = 'acknowledgement',
