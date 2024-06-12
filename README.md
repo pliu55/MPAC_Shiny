@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/717806649.svg)](https://zenodo.org/doi/10.5281/zenodo.11623974)
+
 # Introduction
 This repository contains R source code and all the data for an MPAC Shiny app.
 
