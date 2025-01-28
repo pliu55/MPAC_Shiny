@@ -57,9 +57,9 @@ hmTcgaNeiStt <- function(input) {
         data.table(ent = rownames(prot_cnmat),  loc = 'omic' ),
         data.table(ent = rownames(prot_rnamat), loc = 'omic' ),
         data.table(ent = prot,                  loc = prot   )
-    )) 
+    ))
 
-    up_edgedt = inpl$pthl$edgedt[ to == prot, .(from, title_lab) ] %>% 
+    up_edgedt = inpl$pthl$edgedt[ to == prot, .(from, title_lab) ] %>%
                 setnames(1, 'ent')
     dn_edgedt = inpl$pthl$edgedt[ from == prot, .(to, title_lab) ] %>%
                 setnames(1, 'ent')
@@ -80,15 +80,15 @@ hmTcgaNeiStt <- function(input) {
     }
 
     grpdt = merge(grpdt, edgedt, by='ent', all.x=TRUE) %>%
-            .[, grp := ifelse(is.na(title_lab), loc, 
+            .[, grp := ifelse(is.na(title_lab), loc,
                               paste0(loc, ":\n", title_lab))] %>%
-            .[, loc := factor(loc, levels=c('upstream', 'omic', prot, 
+            .[, loc := factor(loc, levels=c('upstream', 'omic', prot,
                                             'downstream'))] %>%
             .[order(loc, grp, ent)]
 
     grpdt[, grp := factor(grp, levels=unique(grpdt$grp))]
 
-    pltmat = rbind(up_iplmat, prot_cnmat, prot_rnamat, prot_iplmat, 
+    pltmat = rbind(up_iplmat, prot_cnmat, prot_rnamat, prot_iplmat,
                    dn_iplmat) %>% .[ grpdt$ent, ]
     rownames(pltmat) = rownames(pltmat) %>% stringr::str_wrap(width=60)
 
@@ -149,13 +149,13 @@ bxTcgaProtIplInfil <- function(input) {
     act_pats = getActPats(iplmat)
 
     n_gns = length(input$tcga_prots)
-    prt_lab = ifelse(n_gns > 1, paste0('all ', n_gns, ' proteins'), 
+    prt_lab = ifelse(n_gns > 1, paste0('all ', n_gns, ' proteins'),
                      input$tcga_prots[1])
     act_lab = paste0(prt_lab, ' with IPLs > 0 (n=', length(act_pats), ')') %>%
               stringr::str_wrap(width=40)
     other_lab = paste0('others (n=', ncol(iplmat) - length(act_pats), ')')
 
-    frcdt = inpl$tcgal$infilmat[, cldt$pat, drop=FALSE] %>% 
+    frcdt = inpl$tcgal$infilmat[, cldt$pat, drop=FALSE] %>%
             as.data.table(keep.rownames='ct') %>%
             melt(id='ct', variable='pat', value='frc') %>%
             .[, grp := ifelse(pat %in% act_pats, act_lab, other_lab)]
@@ -166,7 +166,7 @@ bxTcgaProtIplInfil <- function(input) {
     p = ggplot(frcdt, aes(x=ct, y=frc, fill=grp)) +
         geom_boxplot( outlier.shape=NA, width=0.5, alpha=0.7) +
         theme_classic() + SQ_TM +
-        theme( aspect.ratio = 1/4, 
+        theme( aspect.ratio = 1/4,
                axis.title.x = element_blank(),
                axis.text.x = element_text(angle=40, hjust=1),
                plot.margin = margin(l=0, r=1.0, b=0, t=0, unit='cm'),
@@ -202,10 +202,10 @@ srTcgaProtIplOsPfi <- function(input) {
     pfi_title = 'progression-free survival'
     pfi_ylab  = 'progression-free survival probability'
 
-    os_p  = srByActIpls(input$tcga_prots, os_title, iplmat, cldt, os_frm, 
+    os_p  = srByActIpls(input$tcga_prots, os_title, iplmat, cldt, os_frm,
                         os_ylab)
 
-    pfi_p = srByActIpls(input$tcga_prots, pfi_title, iplmat, cldt, pfi_frm, 
+    pfi_p = srByActIpls(input$tcga_prots, pfi_title, iplmat, cldt, pfi_frm,
                         pfi_ylab)
 
     wrap_plots(os_p, plot_spacer(), pfi_p, widths=c(1, 0.1, 1), ncol=3) %>%
@@ -235,7 +235,7 @@ srByActIpls <- function(gns, title, iplmat, cdrdt, frm, ylab) {
         legend = 'top',
         legend.title = '',
         title = title,
-        ggtheme = theme_classic() + SQ_TM ) + 
+        ggtheme = theme_classic() + SQ_TM ) +
         guides(color=guide_legend(nrow=2))
 
     return(p$plot)
@@ -293,7 +293,7 @@ hmIplWithSampCl <- function(pltmat, cldt, col_title) {
         cluster_columns   = TRUE,
         cluster_rows      = FALSE,
         use_raster        = FALSE,
-      # heatmap_height    = unit(length(gnnames)/10, 'cm'), 
+      # heatmap_height    = unit(length(gnnames)/10, 'cm'),
         heatmap_legend_param = list(
             title       = 'IPL',
             title_gp    = gpar(fontsize=FONT_SIZE),
@@ -342,7 +342,8 @@ hmTcgaOvr <- function(input) {
                                     TRUE, FALSE),
         raster_quality    = 5,
         heatmap_legend_param = list(
-            title       = expression(paste('log'[10], '(adjusted P)')),
+            title       = expression(paste('log'[10], '(adjusted ',
+                                           italic('p'), ')')),
             title_gp    = gpar(fontsize=FONT_SIZE),
             labels_gp   = gpar(fontsize=FONT_SIZE),
             legend_width = grid::unit(0.8, 'inch'),
