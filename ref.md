@@ -1,6 +1,6 @@
 If you use the result from this work, please cite:
 
-> __MPAC: a computational framework for inferring cancer pathway activities from multi-omic data__. Peng Liu, David Page, Paul Ahlquist, Irene M. Ong*, Anthony Gitter*. _Bioinformatics_, Volume 41, Issue 10, October 2025, btaf490, [https://doi.org/10.1093/bioinformatics/btaf490](https://doi.org/10.1093/bioinformatics/btaf490), *co-corresponding author
+> [MPAC: a computational framework for inferring cancer pathway activities from multi-omic data](https://doi.org/10.1093/bioinformatics/btaf490). Peng Liu, David Page, Paul Ahlquist, Irene M. Ong*, Anthony Gitter*. Bioinformatics, Volume 41, Issue 10, October 2025, btaf490, *co-corresponding author
 
 We also recommend to cite the original paper for PARADIGM, which compute pathway levels:
 
